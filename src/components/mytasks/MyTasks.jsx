@@ -8,7 +8,7 @@ const MyTasks = () => {
 
   return (
     <div>
-      {task.tasks.map((task) => {
+      {task.filtred.map((task) => {
         return <MyTask task={task} />;
       })}
     </div>

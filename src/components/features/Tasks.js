@@ -5,6 +5,7 @@ const initialState = {
   tasks: [],
   popup: false,
   isEditable: false,
+  filtred: [],
 };
 
 const taskSlice = createSlice({
@@ -19,6 +20,7 @@ const taskSlice = createSlice({
         done: false,
       });
       state.popup = false;
+      state.filtred = state.tasks;
     },
 
     showModal: (state) => {
@@ -34,19 +36,40 @@ const taskSlice = createSlice({
         task.id === action.payload.id ? action.payload : task
       );
       state.isEditable = false;
+      state.filtred = state.tasks;
     },
 
     removeTask: (state, action) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload.id);
+      state.filtred = state.tasks;
     },
 
     setEdit: (state) => {
       state.isEditable = true;
     },
+
+    showAll: (state, action) => {
+      state.filtred = state.tasks;
+    },
+    showCompleted: (state, action) => {
+      state.filtred = state.tasks.filter((task) => task.done === true);
+    },
+    showPending: (state, action) => {
+      state.filtred = state.tasks.filter((task) => task.done === false);
+    },
   },
 });
 
-export const { addTask, showModal, hideModal, editTask, removeTask, setEdit } =
-  taskSlice.actions;
+export const {
+  addTask,
+  showModal,
+  hideModal,
+  editTask,
+  removeTask,
+  setEdit,
+  showAll,
+  showCompleted,
+  showPending,
+} = taskSlice.actions;
 
 export default taskSlice.reducer;
