@@ -3,11 +3,13 @@ import "./App.scss";
 
 import React from "react";
 import Header from "./components/header/Header";
+import MyTasks from "./components/mytasks/MyTasks";
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <MyTasks />
     </div>
   );
 }

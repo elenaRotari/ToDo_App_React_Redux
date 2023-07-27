@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 const styles = {
   primary: {
     backgroundColor: "blue",
@@ -8,6 +9,7 @@ const styles = {
     padding: "10px 20px",
     fontWeight: 900,
     cursor: "pointer",
+    width: "100px",
   },
   secondary: {
     backgroundColor: "green",
@@ -17,8 +19,10 @@ const styles = {
     borderRadius: "5px",
     padding: "10px 20px",
     cursor: "pointer",
+    width: "100px",
   },
   cancel: {
+    width: "100px",
     backgroundColor: "red",
     fontWeight: 900,
     color: "white",
@@ -28,10 +32,15 @@ const styles = {
     cursor: "pointer",
   },
 };
-const Button = ({ name, onClick, type, style }) => {
+const Button = ({ name, action, type, style }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(action());
+  };
   return (
     <button
-      onClick={() => onClick((prev) => !prev)}
+      onClick={handleClick}
       type={type === "submit" ? "submit" : "button"}
       style={styles[style]}
     >

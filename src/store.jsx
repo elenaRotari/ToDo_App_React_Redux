@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import taskReducer from "./components/features/Tasks.jsx";
+import taskReducer from "./components/features/Tasks.js";
 
 const store = configureStore({
   reducer: {
