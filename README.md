@@ -1,7 +1,7 @@
 # ToDo App using React.js/Vite with latest Version React-router-dom / Redux- Toolkit
 
 ## Get starting
-
+     npm i 
      npm run dev
 
 ## Posibilities
