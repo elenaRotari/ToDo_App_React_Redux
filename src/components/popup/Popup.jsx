@@ -17,13 +17,15 @@ const Popup = () => {
       <h3>Add new Task</h3>
 
       <input type="text" placeholder="type here" ref={ref} />
-      <Button
-        name="Add"
-        style={"primary"}
-        action={() => addTask({ content: ref.current.value })}
-      />
+      <div className="btns">
+        <Button
+          name="Add"
+          style={"primary"}
+          action={() => addTask({ content: ref.current.value })}
+        />
 
-      <Button name="Cancel" style={"cancel"} action={hideModal} />
+        <Button name="Cancel" style={"cancel"} action={hideModal} />
+      </div>
     </div>
   );
 };

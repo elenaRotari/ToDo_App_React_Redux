@@ -5,6 +5,7 @@ import MyTask from "./MyTask";
 
 const MyTasks = () => {
   const task = useSelector((state) => state.task);
+  console.log(task.filtred);
 
   return (
     <div>

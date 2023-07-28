@@ -9,7 +9,8 @@ const styles = {
     padding: "10px 20px",
     fontWeight: 900,
     cursor: "pointer",
-    width: "100px",
+    width: "160px",
+    fontSize: "16px",
   },
   secondary: {
     backgroundColor: "green",
@@ -19,10 +20,11 @@ const styles = {
     borderRadius: "5px",
     padding: "10px 20px",
     cursor: "pointer",
-    width: "100px",
+    width: "160px",
+    fontSize: "16px",
   },
   cancel: {
-    width: "100px",
+    width: "160px",
     backgroundColor: "red",
     fontWeight: 900,
     color: "white",
@@ -30,6 +32,7 @@ const styles = {
     borderRadius: "5px",
     padding: "10px 20px",
     cursor: "pointer",
+    fontSize: "16px",
   },
 };
 const Button = ({ name, action, type, style }) => {

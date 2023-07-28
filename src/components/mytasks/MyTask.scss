@@ -1,0 +1,26 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #530454;
+  padding: 1rem;
+
+  .myTask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #530454;
+    text-align: center;
+    input[type="checkbox"] {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  .btn {
+    display: flex;
+    gap: 1rem;
+  }
+}
