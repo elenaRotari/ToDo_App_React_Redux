@@ -1,12 +1,10 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import "./dropDown.scss";
 
 const Dropdown = ({ options, onSelect }) => {
   const [selectedOption, setSelectedOption] = useState("");
-
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-    onSelect(option);
-  };
+  const task = useSelector((state) => state.task);
 
   return (
     <div className="dropdown">

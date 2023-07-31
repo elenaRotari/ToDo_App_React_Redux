@@ -1,0 +1,15 @@
+.dropdown {
+  select {
+    width: 150px;
+    padding: 5px;
+    background-color: inherit;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border: none;
+    border-bottom: 1px solid rgb(36, 6, 231);
+    color: white;
+    option {
+      background-color: inherit;
+    }
+  }
+}
