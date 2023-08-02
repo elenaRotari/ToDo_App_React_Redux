@@ -8,14 +8,13 @@ import { showModal } from "../features/Tasks";
 
 const HeaderBar = () => {
   const state = useSelector((state) => state.task);
-  const handleDropdownSelect = (selectedOption) => {};
 
-  const options = ["Completed", "Pending"];
+  const options = ["All", "Completed", "Pending"];
   return (
     <div className="headerBar">
       <Button name="Add New Task" style={"primary"} action={showModal} />
       {state.popup && <Popup />}
-      <Dropdown options={options} onSelect={handleDropdownSelect} />
+      <Dropdown options={options} />
     </div>
   );
 };

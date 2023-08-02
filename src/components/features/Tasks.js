@@ -41,6 +41,12 @@ const taskSlice = createSlice({
     cancel: (state) => {
       state.isEditable = false;
     },
+    setChecked: (state, action) => {
+      state.tasks = state.tasks.map((task) =>
+        task.id === action.payload.id ? { ...task, done: !task.done } : task
+      );
+      state.filtred = state.tasks;
+    },
 
     removeTask: (state, action) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload.id);
@@ -74,6 +80,7 @@ export const {
   showCompleted,
   showPending,
   cancel,
+  setChecked,
 } = taskSlice.actions;
 
 export default taskSlice.reducer;

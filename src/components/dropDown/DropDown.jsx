@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./dropDown.scss";
+import { useDispatch } from "react-redux";
+import { showAll, showCompleted, showPending } from "../features/Tasks";
 
-const Dropdown = ({ options, onSelect }) => {
-  const [selectedOption, setSelectedOption] = useState("");
-  const task = useSelector((state) => state.task);
+const Dropdown = ({ options }) => {
+  const dispatch = useDispatch();
+  const handleChange = (e) => {
+    if (e.target.value === "Completed") {
+      dispatch(showCompleted());
+    } else if (e.target.value === "Pending") {
+      dispatch(showPending());
+    } else {
+      dispatch(showAll());
+    }
+  };
 
   return (
     <div className="dropdown">
-      <select
-        value={selectedOption}
-        onChange={(e) => handleOptionSelect(e.target.value)}
-      >
-        <option value="">All</option>
+      <select onChange={handleChange}>
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}

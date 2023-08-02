@@ -1,29 +1,36 @@
 import React, { useState } from "react";
 import Button from "../Button";
-import { removeTask, editTask, setEdit, cancel } from "../features/Tasks.js";
-import { useSelector } from "react-redux";
+import {
+  removeTask,
+  editTask,
+  setEdit,
+  cancel,
+  setChecked,
+} from "../features/Tasks.js";
+import { useDispatch, useSelector } from "react-redux";
 import "./MyTask.scss";
 
 const MyTask = ({ task }) => {
+  const dispatch = useDispatch();
   const state = useSelector((state) => state.task);
   const [value, setValue] = useState({
     content: task.content,
     date: task.date,
     done: task.done,
   });
-
-  console.log(value);
+  console.log(value.done);
   return (
     <div className="task">
       {!state.isEditable ? (
         <div className="myTask">
           <input
-            type="checkbox"
             value={value.done}
+            type="checkbox"
             checked={value.done}
-            onChange={(e) =>
-              setValue((prev) => ({ ...prev, done: e.target.checked }))
-            }
+            onChange={(event) => {
+              setValue((prev) => ({ ...prev, done: event.target.checked }));
+              dispatch(setChecked({ id: task.id, done: event.target.checked }));
+            }}
           />
           <p>{task.date}</p>
           <p>{task.content}</p>
